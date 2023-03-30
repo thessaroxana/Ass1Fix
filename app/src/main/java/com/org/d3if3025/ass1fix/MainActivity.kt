@@ -1,6 +1,6 @@
 package com.org.d3if3025.ass1fix
 
-import android.icu.text.IDNA.Info
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -27,5 +27,11 @@ class MainActivity : AppCompatActivity() {
         adapter = FoodAdapter(foodList)
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
+
+        adapter.onItemClick = {
+            val intent = Intent(this, DetailedActivity::class.java)
+            intent.putExtra("food", it)
+            startActivity(intent)
+        }
     }
 }
