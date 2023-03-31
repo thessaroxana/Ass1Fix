@@ -6,18 +6,26 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.org.d3if3025.ass1fix.databinding.ItemBinding
 
-class FoodAdapter(val list:ArrayList<Food>)
-    : RecyclerView.Adapter<FoodAdapter.FoodViewHolder>(){
+class FoodAdapter(val list: ArrayList<Food>, val handler: (Food) -> Unit) :
+    RecyclerView.Adapter<FoodAdapter.FoodViewHolder>() {
 
-    var onItemClick : ((Food) -> Unit)? = null
+//    var onItemClick : ((Food) -> Unit)? = null
 
-        class FoodViewHolder(val itemBinding : ItemBinding):RecyclerView.ViewHolder(itemBinding.root) {
-
+    class FoodViewHolder(val itemBinding: ItemBinding) : RecyclerView.ViewHolder(itemBinding.root) {
+        fun bind(food: Food) {
+            with(itemBinding) {
+                imageView.setImageResource(food.image)
+                textView.text = food.name
+            }
         }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodViewHolder {
-        return FoodViewHolder(ItemBinding.inflate(LayoutInflater.from(parent.context), parent, false
-        ))
+        return FoodViewHolder(
+            ItemBinding.inflate(
+                LayoutInflater.from(parent.context), parent, false
+            )
+        )
     }
 
     override fun getItemCount(): Int {
@@ -25,11 +33,16 @@ class FoodAdapter(val list:ArrayList<Food>)
     }
 
     override fun onBindViewHolder(holder: FoodViewHolder, position: Int) {
-        holder.itemBinding.imageView.setImageResource(list[position].image)
-        holder.itemBinding.textView.text = list[position].name
-
-        holder.itemView.setOnClickListener {
-            var invoke = onItemClick?.invoke(Food)
+        with(holder) {
+            bind(list[position])
+            itemBinding.root.setOnClickListener { handler(list[position]) }
         }
+
+//        holder.itemBinding.imageView.setImageResource(list[position].image)
+//        holder.itemBinding.textView.text = list[position].name
+
+//        holder.itemView.setOnClickListener {
+//            var invoke = onItemClick?.invoke()
+//        }
     }
 }
