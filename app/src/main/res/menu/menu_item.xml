@@ -7,7 +7,7 @@
         android:title="Cari"
         android:icon="@drawable/baseline_search_24"
         app:showAsAction="always|collapseActionView"
-        android:actionViewClass="androidx.appcompat.widget.SearchView"/>
+        app:actionViewClass="androidx.appcompat.widget.SearchView" />
 
 
 </menu>
