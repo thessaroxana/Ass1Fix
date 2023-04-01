@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var foodList: ArrayList<Food>
     private lateinit var binding: ActivityMainBinding
     private lateinit var tempArrayList: ArrayList<Food>
-
+    private lateinit var menu :Menu
     var newArrayList = arrayListOf<Food>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,6 +57,7 @@ class MainActivity : AppCompatActivity() {
 
         menuInflater.inflate(R.menu.menu_item, menu)
         val item = menu?.findItem(R.id.search_action)
+
         val searchView = item?.actionView as SearchView
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -77,7 +78,7 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     tempArrayList.clear()
                     tempArrayList.addAll(newArrayList)
-                    newRecycler.adapter!!.notifyDataSetChanged()
+//                    binding.recyclerView.adapter!!.notifyDataSetChanged()
 //                    binding.recyclerView.adapter?.notifyDataSetChanged()
                 }
 
@@ -97,7 +98,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         tempArrayList.addAll(newArrayList)
-        val adapter = FoodAdapter(newArrayList)
+        val adapter = FoodAdapter(newArrayList) {it ->
+
+        }
         val swipegesture = object : SwipeGesture(this) {
             override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder):
 

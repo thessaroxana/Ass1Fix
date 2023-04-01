@@ -7,4 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="biru_pastel">#FF99CCFF</color>
+    <color name="lavender">#FFCC99FF</color>
+    <color name="wave">#66A5AD</color>
+    <color name="seafoam">#C4DFE6</color>
+    <color name="deletecolor">#B8271D</color>
 </resources>
