@@ -1,48 +1,44 @@
 package com.org.d3if3025.ass1fix
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
-import android.widget.SearchView
-import android.widget.Toast
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.org.d3if3025.ass1fix.databinding.ActivityMainBinding
-import java.util.*
-import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityMainBinding
-    private var foodList: ArrayList<Food> = ArrayList()
+    private var foodList = arrayListOf<Food>()
     private lateinit var fAdapter: FoodAdapter
-    lateinit var recyclerView: androidx.recyclerview.widget.RecyclerView
-
+    private val list = arrayListOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        recyclerView = binding.recyclerView
-
-        foodList.shuffle()
-
+        foodList.addAll(initItems())
         fAdapter = FoodAdapter(foodList)
 
-        with(recyclerView) {
-            adapter = FoodAdapter(initItems())
-            setHasFixedSize(true)
+        for (i in foodList.indices) {
+            list.add(foodList[i].name)
         }
 
-
+        with(binding.recyclerView) {
+            layoutManager = LinearLayoutManager(this@MainActivity)
+            adapter = fAdapter
+            setHasFixedSize(true)
+        }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_item, menu)
 
-        val menuItem = menu?.findItem(R.id.recyclerView)
-        val searchView: SearchView = menuItem?.actionView as SearchView
+        val menuItem = menu.findItem(R.id.search_action)
+        val searchView = menuItem.actionView as SearchView
         performSearch(searchView)
 
         return super.onCreateOptionsMenu(menu)
@@ -51,6 +47,14 @@ class MainActivity : AppCompatActivity() {
     private fun performSearch(searchView: SearchView) {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
+                for (i in list.indices) {
+                    Log.wtf("AAAA", "onQueryTextSubmit: ${list[i]}")
+
+                    if (list[i].contains(query!!)) {
+                        fAdapter.filter.filter(query)
+                    }
+                }
+
                 return false
             }
 
@@ -58,13 +62,11 @@ class MainActivity : AppCompatActivity() {
                 fAdapter.filter.filter(newText)
                 return true
             }
-
-
         })
     }
 
-    private fun initItems(): List<Food> {
-        return listOf(
+    private fun initItems(): ArrayList<Food> {
+        return arrayListOf(
             Food("Bakso", R.drawable.bakso),
             Food("Nasi Goreng", R.drawable.nasi_goreng),
             Food("Rendang", R.drawable.rendang),

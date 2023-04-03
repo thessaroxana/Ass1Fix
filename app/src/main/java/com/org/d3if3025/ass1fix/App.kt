@@ -8,4 +8,3 @@ class App : Application() {
             super.onCreate()
         }
     }
-}

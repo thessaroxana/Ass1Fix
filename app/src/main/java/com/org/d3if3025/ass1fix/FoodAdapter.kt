@@ -1,37 +1,44 @@
 package com.org.d3if3025.ass1fix
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
 import android.widget.Filter
 import android.widget.Filterable
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.org.d3if3025.ass1fix.databinding.ItemBinding
 
+class FoodAdapter(private var foodList: ArrayList<Food>) :
+    RecyclerView.Adapter<FoodAdapter.ViewHolder>(), Filterable {
 
-class FoodAdapter( private var foodList: List<Food>) : RecyclerView.Adapter<FoodAdapter.ViewHolder>(), Filterable {
+    class ViewHolder(val binding: ItemBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(food: Food) {
+            Glide.with(binding.root)
+                .load(food.image)
+                .into(binding.imageView)
 
-    class ViewHolder (private val binding : ListItemBinding ) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(food: Food) = with(binding) {
-            name.text = food.name
-            imageView.setImageResource(food.image)
+            with(binding) {
+                textView.text = food.name
+                //            imageView.setImageResource(food.image)
+            }
         }
     }
 
-    var filteredList: List<Food> = foodList
+    var filteredList: ArrayList<Food> = foodList
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(filteredList[position])
-    }
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) =
+        holder.bind(foodList[position])
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val binding = ListItemBinding.inflate(inflater, parent, false)
-        return ViewHolder(binding)
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        ViewHolder(
+            ItemBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        )
 
-    override fun getItemCount(): Int {
-        return filteredList.size
-    }
+    override fun getItemCount() = filteredList.size
 
     override fun getFilter(): Filter {
         return object : Filter() {
@@ -42,7 +49,7 @@ class FoodAdapter( private var foodList: List<Food>) : RecyclerView.Adapter<Food
                 filteredList = when {
                     charString.isEmpty() -> foodList
                     else -> {
-                        val internalFilteredList: MutableList<Food> = mutableListOf()
+                        val internalFilteredList = arrayListOf<Food>()
                         for (data in foodList) {
                             if (data.name.contains(charString, ignoreCase = true)) {
                                 internalFilteredList.add(data)
@@ -58,8 +65,7 @@ class FoodAdapter( private var foodList: List<Food>) : RecyclerView.Adapter<Food
             }
 
             override fun publishResults(p0: CharSequence?, p1: FilterResults?) {
-                filteredList = p1?.values as List<Food>
-                notifyDataSetChanged()
+                filteredList = p1?.values as ArrayList<Food>
             }
 
         }
