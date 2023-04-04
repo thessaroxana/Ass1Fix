@@ -3,7 +3,7 @@
     <style name="Theme.Ass1fix" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/biru_pastel</item>
-        <item name="colorPrimaryVariant">@color/lavender</item>
+        <item name="colorPrimaryVariant">@color/item</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/wave</item>
