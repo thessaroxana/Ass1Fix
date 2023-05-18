@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Ass1fix</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="belum_ada_data">Belum ada data</string>
+    <string name="histori">histori</string>
+    <string name="tampilan_kategori">Kategori</string>
+    <string name="kategori">Menu Kategori</string>
 </resources>

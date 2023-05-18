@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/food">
+    <fragment
+        android:id="@+id/food"
+        android:name="com.org.d3if3025.ass1fix.MainActivity"
+        android:label="fragment_food"
+        tools:layout="@layout/fragment_food" >
+        <action
+            android:id="@+id/action_food_to_historyFragment4"
+            app:destination="@id/historyFragment4" />
+        <action
+            android:id="@+id/action_food_to_resepFragment"
+            app:destination="@id/resepFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment4"
+        android:name="com.org.d3if3025.ass1fix.HistoryFragment"
+        android:label="HistoryFragment"
+        tools:layout="@layout/fragment_history"/>
+    <fragment
+        android:id="@+id/resepFragment"
+        android:name="com.org.d3if3025.ass1fix.ResepFragment"
+        android:label="ResepFragment"
+        tools:layout="@layout/fragment_resep"/>
+</navigation>
