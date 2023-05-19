@@ -6,19 +6,18 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.org.d3if3025.ass1fix.databinding.ItemBinding
+import com.org.d3if3025.ass1fix.databinding.ItemResepBinding
 
 class FoodAdapter(private var foodList: ArrayList<Food>) :
     RecyclerView.Adapter<FoodAdapter.ViewHolder>() {
-    class ViewHolder(private val binding: ItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(private val binding: ItemResepBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun bind(food: Food) {
             Glide.with(binding.root)
                 .load(food.image)
-                .into(binding.imageView)
+                .into(binding.ivCategoryThumb)
 
-            with(binding) {
-                textView.text = food.name
-                //            imageView.setImageResource(food.image)
-            }
+            with(binding) { tvCategoryName.text = food.name }
         }
     }
 
@@ -27,7 +26,7 @@ class FoodAdapter(private var foodList: ArrayList<Food>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(
-            ItemBinding.inflate(
+            ItemResepBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
