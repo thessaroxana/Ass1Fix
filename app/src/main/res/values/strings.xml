@@ -5,4 +5,10 @@
     <string name="histori">histori</string>
     <string name="tampilan_kategori">Kategori</string>
     <string name="kategori">Menu Kategori</string>
+    <string name="title_activity_main3">Main3Activity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="resep_bakso">bahan-bahan</string>
+    <string name="nav_kategori">Kategori</string>
 </resources>

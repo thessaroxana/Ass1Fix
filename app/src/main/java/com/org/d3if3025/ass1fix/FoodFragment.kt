@@ -14,4 +14,6 @@ class FoodFragment : Fragment() {
     ): View? {
         return super.onCreateView(inflater, container, savedInstanceState)
     }
+
+
 }
