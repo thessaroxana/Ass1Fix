@@ -11,4 +11,15 @@
         app:actionViewClass="androidx.appcompat.widget.SearchView" />
 
 
+    <item
+        android:id="@+id/about"
+        android:title="@string/about"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_history"
+        android:title="@string/menu_history"
+        app:showAsAction="never" />
+
+
 </menu>

@@ -11,4 +11,7 @@ interface FoodDao {
 
     @Query("SELECT * FROM food ORDER BY id DESC")
     fun getLastFood(): LiveData<List<FoodEntity>>
+
+    @Query("DELETE FROM food")
+    fun clearData()
 }

@@ -21,6 +21,11 @@ class FoodAdapter(private var foodList: ArrayList<Food>) :
         }
     }
 
+    private val data = mutableListOf<Food>()
+    fun updateData(newData: List<Food>) { data.clear()
+        data.addAll(newData)
+        notifyDataSetChanged()
+    }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) =
         holder.bind(foodList[position])
 
