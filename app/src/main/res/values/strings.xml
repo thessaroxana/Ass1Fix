@@ -2,7 +2,7 @@
     <string name="app_name">Ass1fix</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="belum_ada_data">Belum ada data</string>
-    <string name="histori">histori</string>
+    <string name="histori">Histori</string>
     <string name="tampilan_kategori">Kategori</string>
     <string name="about">About</string>
     <string name="resep_bakso">Bahan-bahan</string>
@@ -13,4 +13,10 @@
     <string name="hapus">hapus</string>
     <string name="batal">batal</string>
     <string name="switch_layout">ubah tampilan</string>
+    <string name="fab_content_desc">Tambah Request</string>
+    <string name="request_resep">Request Resep</string>
+    <string name="extended_fab_content_desc">bottom request</string>
+    <string name="content_description_end_icon">Makanan yang ingin dibuatin resepnya</string>
+    <string name="label">Request Resep</string>
+    <string name="title_home">Home</string>
 </resources>

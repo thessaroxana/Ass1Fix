@@ -7,7 +7,7 @@ import androidx.room.Query
 interface FoodDao {
 
     @Insert
-    fun insert(bmi: FoodEntity)
+    fun insert(food: FoodEntity)
 
     @Query("SELECT * FROM food ORDER BY id DESC")
     fun getLastFood(): LiveData<List<FoodEntity>>

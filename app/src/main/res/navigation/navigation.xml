@@ -9,9 +9,7 @@
         android:name="com.org.d3if3025.ass1fix.MainActivity"
         android:label="fragment_food"
         tools:layout="@layout/fragment_food" >
-        <action
-            android:id="@+id/action_food_to_resepFragment"
-            app:destination="@id/resepFragment" />
+
         <action
             android:id="@+id/action_food_to_historyFragment4"
             app:destination="@id/historyFragment4" />
@@ -21,19 +19,22 @@
         <action
             android:id="@+id/action_food_self"
             app:destination="@id/food" />
+        <action
+            android:id="@+id/action_food_to_fragmentInputRequest"
+            app:destination="@id/fragmentInputRequest" />
     </fragment>
     <fragment
         android:id="@+id/historyFragment4"
         android:name="com.org.d3if3025.ass1fix.HistoryFragment"
         android:label="HistoryFragment"
         tools:layout="@layout/fragment_history"/>
-    <fragment
-        android:id="@+id/resepFragment"
-        android:name="com.org.d3if3025.ass1fix.ResepFragment"
-        android:label="ResepFragment"
-        tools:layout="@layout/fragment_resep"/>
+
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.org.d3if3025.ass1fix.AboutFragment"
         android:label="AboutFragment" />
+    <fragment
+        android:id="@+id/fragmentInputRequest"
+        android:name="com.org.d3if3025.ass1fix.FragmentInputRequest"
+        android:label="FragmentInputRequest" />
 </navigation>

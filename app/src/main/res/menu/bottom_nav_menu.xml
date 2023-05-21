@@ -12,9 +12,9 @@
         android:title="@string/histori" />
 
     <item
-        android:id="@+id/kategori"
+        android:id="@+id/about"
         android:icon="@drawable/baseline_category_24"
-        android:title="@string/kategori"
+        android:title="@string/about"
          />
 
 </menu>

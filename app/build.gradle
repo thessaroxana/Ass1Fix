@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.org.d3if3025.ass1fix"
-        minSdk 21
+        minSdk 30
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -53,4 +53,5 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
     implementation 'androidx.room:room-runtime:2.4.2'
     kapt 'androidx.room:room-compiler:2.4.2'
+    implementation 'androidx.datastore:datastore-preferences:1.0.0'
 }

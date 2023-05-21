@@ -9,6 +9,4 @@ class FoodEntity (
     var id: Long = 0L,
     var tanggal: Long = System.currentTimeMillis(),
     var name: String,
-    var image: Int,
-    var resep: String
     )
