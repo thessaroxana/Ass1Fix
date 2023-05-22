@@ -162,7 +162,8 @@ class FoodFragment : Fragment(), View.OnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as AppCompatActivity).supportActionBar?.title = "Newser"
+        (activity as AppCompatActivity).supportActionBar?.title = "Food"
+
 //        (activity as FoodFragment).hideUpButton()
 
         binding.addRequest.setOnClickListener {

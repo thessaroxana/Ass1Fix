@@ -1,37 +1,40 @@
 package com.org.d3if3025.ass1fix
 
+import FoodFragment
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.org.d3if3025.ass1fix.databinding.ActivityMainBinding
-
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        val navView: BottomNavigationView = binding.navView
-
-        val navController = findNavController(R.id.nav_host_fragment_activity_main3)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.historyFragment4, R.id.aboutFragment, R.id.fragmentInputRequest
-            )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
-
+        try {
+            object : Thread() {
+                override fun run() {
+                    sleep(3000)
+                    startActivity(
+                        Intent(
+                            this@MainActivity,
+                            MainActivity::class.java
+                        )
+                    )
+                    finish()
+                }
+            }.start()
+        } catch (ex: Exception) {
+            Toast.makeText(
+                this@MainActivity,
+                "Failed to start app!",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
-
 }
+

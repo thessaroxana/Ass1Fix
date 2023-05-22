@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.org.d3if3025.ass1fix"
-        minSdk 30
+        minSdk 21
         targetSdk 33
         versionCode 1
         versionName "1.0"

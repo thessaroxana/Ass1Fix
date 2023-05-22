@@ -8,10 +8,10 @@
         android:id="@+id/food"
         android:name="com.org.d3if3025.ass1fix.MainActivity"
         android:label="fragment_food"
-        tools:layout="@layout/fragment_food" >
+        tools:layout="@layout/activity_main" >
 
         <action
-            android:id="@+id/action_food_to_historyFragment4"
+            android:id="@+id/action_food_to_historyFragment"
             app:destination="@id/historyFragment4" />
         <action
             android:id="@+id/action_food_to_aboutFragment"
