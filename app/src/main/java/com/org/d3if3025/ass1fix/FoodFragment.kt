@@ -1,16 +1,14 @@
+package com.org.d3if3025.ass1fix
+
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.org.d3if3025.ass1fix.Food
-import com.org.d3if3025.ass1fix.FoodAdapter
-import com.org.d3if3025.ass1fix.R
 import com.org.d3if3025.ass1fix.databinding.FragmentFoodBinding
 
 //package com.org.d3if3025.ass1fix
@@ -32,7 +30,7 @@ import com.org.d3if3025.ass1fix.databinding.FragmentFoodBinding
 //import com.org.d3if3025.ass1fix.db.FoodDb
 //import kotlinx.coroutines.launch
 //
-//class FoodFragment : Fragment() {
+//class com.org.d3if3025.ass1fix.FoodFragment : Fragment() {
 //
 //    private val layoutDataStore: SettingDataStore by lazy {
 //        SettingDataStore(requireContext().dataStore)
@@ -164,12 +162,12 @@ class FoodFragment : Fragment(), View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title = "Food"
 
-//        (activity as FoodFragment).hideUpButton()
+//        (activity as com.org.d3if3025.ass1fix.FoodFragment).hideUpButton()
 
-        binding.addRequest.setOnClickListener {
-            findNavController().navigate(
-                R.id.action_food_to_fragmentInputRequest)
-        }
+//        binding.addRequest.setOnClickListener {
+//            findNavController().navigate(
+//                R.id.action_food_to_fragmentInputRequest)
+//        }
 
     }
 

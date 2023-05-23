@@ -1,9 +1,11 @@
 package com.org.d3if3025.ass1fix.db
 
 import androidx.lifecycle.LiveData
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 
+@Dao
 interface FoodDao {
 
     @Insert

@@ -1,20 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
 
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />
+        android:title="@string/title_home"
+        app:showAsAction="ifRoom"
+        android:enabled="true"/>
+
+    <item
+        android:id="@+id/navigation_lihat_resep"
+        android:icon="@drawable/baseline_remove_red_eye_24"
+        android:title="Lihat Resep"
+        app:showAsAction="ifRoom"
+        android:enabled="true"/>
+
+    <item
+        android:id="@+id/requestResep"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/baseline_add_box_24"
+        android:title="Request Resep"/>
 
     <item
         android:id="@+id/menu_histori"
         android:icon="@drawable/baseline_history_24"
-        android:title="@string/histori" />
+        android:title="@string/histori"
+        android:enabled="true"
+        app:showAsAction="ifRoom"/>
 
     <item
         android:id="@+id/about"
-        android:icon="@drawable/baseline_category_24"
+        android:icon="@drawable/baseline_info_24"
         android:title="@string/about"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
          />
+
+
 
 </menu>

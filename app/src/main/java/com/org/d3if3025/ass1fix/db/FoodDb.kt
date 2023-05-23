@@ -1,8 +1,11 @@
 package com.org.d3if3025.ass1fix.db
 
 import android.content.Context
+import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+
+@Database(entities = [FoodEntity::class], version = 2, exportSchema = false)
 
 abstract class FoodDb : RoomDatabase() {
 

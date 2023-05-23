@@ -24,16 +24,17 @@ class ResepFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonShare.setOnClickListener{showResep()}
-        }
+    }
 
-        private fun showResep(){
-            val message = "Bagikan Resep"
-            val bagikanIntent = Intent(Intent.ACTION_SEND)
-            bagikanIntent.setType("Plain").putExtra(Intent.EXTRA_TEXT, message)
-            if (bagikanIntent.resolveActivity(
-                    requireActivity().packageManager) !=null) {
-                startActivity(bagikanIntent)
-            }
+    private fun showResep(){
+        val message = "Bagikan Resep"
+        val bagikanIntent = Intent(Intent.ACTION_SEND)
+        bagikanIntent.setType("Plain").putExtra(Intent.EXTRA_TEXT, message)
+        if (bagikanIntent.resolveActivity(
+                requireActivity().packageManager) !=null) {
+            startActivity(bagikanIntent)
         }
     }
+
+}
 
