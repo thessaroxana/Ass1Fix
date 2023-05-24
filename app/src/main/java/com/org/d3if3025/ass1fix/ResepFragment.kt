@@ -26,15 +26,21 @@ class ResepFragment : Fragment() {
         binding.buttonShare.setOnClickListener{showResep()}
     }
 
-    private fun showResep(){
-        val message = "Bagikan Resep"
-        val bagikanIntent = Intent(Intent.ACTION_SEND)
-        bagikanIntent.setType("Plain").putExtra(Intent.EXTRA_TEXT, message)
-        if (bagikanIntent.resolveActivity(
-                requireActivity().packageManager) !=null) {
-            startActivity(bagikanIntent)
-        }
+//    private fun showResep(){
+//        val message = "Bagikan Resep"
+//        val bagikanIntent = Intent(Intent.ACTION_SEND)
+//        bagikanIntent.setType("Plain").putExtra(Intent.EXTRA_TEXT, message)
+//        if (bagikanIntent.resolveActivity(
+//                requireActivity().packageManager) !=null) {
+//            startActivity(bagikanIntent)
+//        }
+//    }
+    fun showResep(){
+        val sharingIntent = Intent(Intent.ACTION_SEND)
+        sharingIntent.type = "text/plain"
+        sharingIntent.putExtra(Intent.EXTRA_SUBJECT, requireActivity().getString(R.string.app_name))
+        sharingIntent.putExtra(Intent.EXTRA_TEXT, "Ayo Lihat Resep dengan Foodie!")
+        requireActivity().startActivity(Intent.createChooser(sharingIntent, "Bagikan Melalui"))
     }
-
 }
 
