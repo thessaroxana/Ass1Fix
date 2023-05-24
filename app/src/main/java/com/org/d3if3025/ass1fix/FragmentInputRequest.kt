@@ -36,15 +36,11 @@ class FragmentInputRequest : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.textField.setOnClickListener {
+
+        binding.buttonSubmit.setOnClickListener {
             val resep = binding.textField.text.toString()
             viewModel.getData(resep)
         }
-//        binding.buttonSubmit.setOnClickListener {
-//            findNavController().navigate(
-//                R.id.action_food_to_historyFragment)
-//        }
-
     }
 }
 

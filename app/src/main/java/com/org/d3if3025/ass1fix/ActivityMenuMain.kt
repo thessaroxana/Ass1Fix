@@ -27,7 +27,8 @@ class ActivityMenuMain : AppCompatActivity() {
         binding.navBotton.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.navigation_home -> addFragment(FoodFragment())
-                R.id.requestResep -> addFragment(ResepFragment())
+                R.id.navigation_lihat_resep -> addFragment(ResepFragment())
+                R.id.requestResep -> addFragment(FragmentInputRequest())
                 R.id.menu_histori -> addFragment(HistoryFragment())
                 R.id.about -> addFragment(AboutFragment())
 

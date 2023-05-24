@@ -5,10 +5,10 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity() {
+class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.splash_main)
 
         try {
             object : Thread() {
@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
                     sleep(3000)
                     startActivity(
                         Intent(
-                            this@MainActivity,
+                            this@SplashActivity,
                             ActivityMenuMain::class.java
                         )
                     )
@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
             }.start()
         } catch (ex: Exception) {
             Toast.makeText(
-                this@MainActivity,
+                this@SplashActivity,
                 "Failed to start app!",
                 Toast.LENGTH_SHORT
             ).show()

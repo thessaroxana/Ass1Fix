@@ -6,7 +6,7 @@
     app:startDestination="@id/food">
     <fragment
         android:id="@+id/food"
-        android:name="com.org.d3if3025.ass1fix.MainActivity"
+        android:name="com.org.d3if3025.ass1fix.SplashActivity"
         android:label="fragment_food"
         tools:layout="@layout/fragment_food" >
 
