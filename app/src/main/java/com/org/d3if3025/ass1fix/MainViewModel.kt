@@ -1,10 +1,11 @@
 package com.org.d3if3025.ass1fix
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import android.util.Log
+import androidx.lifecycle.*
 import com.org.d3if3025.ass1fix.db.FoodDao
+import com.org.d3if3025.ass1fix.network.FoodApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MainViewModel (db: FoodDao) :  ViewModel() {
 
@@ -12,6 +13,18 @@ class MainViewModel (db: FoodDao) :  ViewModel() {
 
     init {
         data.value = initItems()
+        retrieveData()
+    }
+
+    private fun retrieveData() {
+        viewModelScope.launch (Dispatchers.IO) {
+            try {
+                val result = FoodApi.service.getHewan()
+                Log.d("MainViewModel", "Success: $result")
+            } catch (e: Exception) {
+                Log.d("MainViewModel", "Failure: ${e.message}")
+            }
+        }
     }
     private fun initItems(): ArrayList<Food> {
         return arrayListOf(
