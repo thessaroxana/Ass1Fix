@@ -19,7 +19,7 @@ class MainViewModel (db: FoodDao) :  ViewModel() {
     private fun retrieveData() {
         viewModelScope.launch (Dispatchers.IO) {
             try {
-                val result = FoodApi.service.getHewan()
+                val result = FoodApi.service.getFood()
                 Log.d("MainViewModel", "Success: $result")
             } catch (e: Exception) {
                 Log.d("MainViewModel", "Failure: ${e.message}")

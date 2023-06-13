@@ -4,8 +4,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.GET
 
-private const val BASE_URL = "https://raw.githubusercontent.com/" +
-        "indraazimi/galeri-hewan/static-api/"
+private const val BASE_URL = "https://raw.githubusercontent.com/thessaroxana/foodie-json/main/"
 
 private val retrofit = Retrofit.Builder()
     .addConverterFactory(ScalarsConverterFactory.create())
@@ -13,8 +12,8 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface FoodApiService {
-    @GET("static-api.json")
-    suspend fun getHewan(): String
+    @GET("food.json")
+    suspend fun getFood(): String
 }
 
 object FoodApi {
