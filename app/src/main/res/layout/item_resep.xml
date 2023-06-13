@@ -31,7 +31,8 @@
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
                 tools:ignore="ContentDescription"
-                tools:src="@drawable/bakso" />
+                tools:src="@drawable/baseline_broken_image_24"
+                />
 
             <View
                 android:layout_width="match_parent"

@@ -34,3 +34,4 @@ object FoodApi {
 
     }
 }
+enum class ApiStatus { LOADING, SUCCESS, FAILED }

@@ -19,4 +19,5 @@
     <string name="content_description_end_icon">Makanan yang ingin dibuatin resepnya</string>
     <string name="label">Request Resep</string>
     <string name="title_home">Home</string>
+    <string name="koneksi_error">Koneksi Error</string>
 </resources>
