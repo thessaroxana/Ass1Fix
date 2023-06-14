@@ -18,6 +18,7 @@ class ActivityMenuMain : AppCompatActivity() {
 
     companion object {
         const val CHANNEL_ID = "updater"
+        const val PERMISSION_REQUEST_CODE = 1
     }
 
     private lateinit var binding: ActivityMenuMainBinding

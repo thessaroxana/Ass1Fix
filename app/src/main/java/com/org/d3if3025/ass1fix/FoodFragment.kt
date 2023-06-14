@@ -1,17 +1,22 @@
 package com.org.d3if3025.ass1fix
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.org.d3if3025.ass1fix.databinding.FragmentFoodBinding
 import com.org.d3if3025.ass1fix.db.FoodDb
 import com.org.d3if3025.ass1fix.network.ApiStatus
+import android.content.pm.PackageManager
+
 
 
 @SuppressLint("NotifyDataSetChanged")
@@ -54,7 +59,6 @@ class FoodFragment : Fragment(), View.OnClickListener {
             foodAdapter.run { notifyDataSetChanged() }
 
         }
-        viewModel.scheduleUpdater(requireActivity().application)
     }
 
     private fun updateProgress(status: ApiStatus) {
@@ -64,6 +68,10 @@ class FoodFragment : Fragment(), View.OnClickListener {
             }
             ApiStatus.SUCCESS -> {
                 binding.progressBar.visibility = View.GONE
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    requestNotificationPermission()
+                }
+
             }
             ApiStatus.FAILED -> {
                 binding.progressBar.visibility = View.GONE
@@ -156,7 +164,22 @@ class FoodFragment : Fragment(), View.OnClickListener {
 //        )
 //    }
 
+
     override fun onClick(oala: View?) {
 
+    }
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+    private fun requestNotificationPermission() {
+        if (ActivityCompat.checkSelfPermission(
+                requireContext(),
+                Manifest.permission.POST_NOTIFICATIONS
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                requireActivity(),
+                arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+                ActivityMenuMain.PERMISSION_REQUEST_CODE
+            )
+        }
     }
 }
