@@ -1,11 +1,11 @@
 package com.org.d3if3025.ass1fix
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.org.d3if3025.ass1fix.databinding.ItemBinding
 import com.org.d3if3025.ass1fix.databinding.ItemResepBinding
 import com.org.d3if3025.ass1fix.network.FoodApi
 
@@ -19,7 +19,10 @@ class FoodAdapter(private var foodList: List<Food>) :
                 .error(R.drawable.baseline_broken_image_24)
                 .into(binding.ivCategoryThumb)
 
-            with(binding) { tvCategoryName.text = food.name }
+            with(binding) {
+                tvCategoryName.text = food.name
+                tvCategoryNameResep.text = food.resep
+            }
         }
     }
 

@@ -54,6 +54,7 @@ class FoodFragment : Fragment(), View.OnClickListener {
             foodAdapter.run { notifyDataSetChanged() }
 
         }
+        viewModel.scheduleUpdater(requireActivity().application)
     }
 
     private fun updateProgress(status: ApiStatus) {
