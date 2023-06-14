@@ -32,14 +32,16 @@ class HistoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         myAdapter = HistoryAdapter()
-        with(binding.recyclerView) {
-            addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
-            adapter = myAdapter
-            setHasFixedSize(true)
-        }
         viewModel.data.observe(viewLifecycleOwner) {
             binding.emptyView.visibility = if (it.isEmpty())
                 View.VISIBLE else View.GONE
+
+            with(binding.recyclerView) {
+                addItemDecoration(DividerItemDecoration(context, RecyclerView.VERTICAL))
+                adapter = myAdapter
+                setHasFixedSize(true)
+            }
+
             myAdapter.submitList(it)
         }
     }

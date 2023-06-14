@@ -2,9 +2,11 @@ package com.org.d3if3025.ass1fix
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -39,7 +41,15 @@ class FragmentInputRequest : Fragment() {
 
         binding.buttonSubmit.setOnClickListener {
             val resep = binding.textField.text.toString()
-            viewModel.getData(resep)
+            if (TextUtils.isEmpty(resep) || resep == "") {
+                Toast.makeText(
+                    requireContext(),
+                    "MASUKIN DULU INPUT LAH ANJ!",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                viewModel.getData(resep)
+            }
         }
     }
 }

@@ -9,7 +9,7 @@ import com.org.d3if3025.ass1fix.databinding.ItemBinding
 import com.org.d3if3025.ass1fix.databinding.ItemResepBinding
 import com.org.d3if3025.ass1fix.network.FoodApi
 
-class FoodAdapter(private var foodList: ArrayList<Food>) :
+class FoodAdapter(private var foodList: List<Food>) :
     RecyclerView.Adapter<FoodAdapter.ViewHolder>() {
     class ViewHolder(private val binding: ItemResepBinding) :
         RecyclerView.ViewHolder(binding.root) {

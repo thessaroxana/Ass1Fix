@@ -37,9 +37,7 @@ class HistoryAdapter : ListAdapter<FoodEntity, HistoryAdapter.ViewHolder>(DIFF_C
             @SuppressLint("StringFormatInvalid")
             fun bind(item: FoodEntity) {
                 binding.tanggalTextView.text = dateFormatter.format(Date(item.tanggal))
-                binding.textView.text = binding.root.context.getString(
-                    R.string.data_x, item.name
-                )
+                binding.textView.text = "resep adalah ${item.name}"
             }
         }
 
