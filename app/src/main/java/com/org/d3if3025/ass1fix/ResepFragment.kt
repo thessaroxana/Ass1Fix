@@ -15,7 +15,7 @@ class ResepFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentResepBinding.inflate(layoutInflater, container, false)
         return binding.root
     }

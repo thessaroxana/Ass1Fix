@@ -44,7 +44,7 @@ class FragmentInputRequest : Fragment() {
             if (TextUtils.isEmpty(resep) || resep == "") {
                 Toast.makeText(
                     requireContext(),
-                    "MASUKIN DULU INPUT LAH ANJ!",
+                    "MASUKIN DULU INPUT YA!",
                     Toast.LENGTH_SHORT
                 ).show()
             } else {
